@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Untuk Ibu ❤️</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #ff79ad);
+      overflow: hidden;
+    }
+
+    /* Hiasan background */
+    .heart {
+      position: fixed;
+      color: rgba(255,255,255,0.7);
+      font-size: 25px;
+      animation: naik 6s linear infinite;
+      bottom: -50px;
+    }
+
+    .heart:nth-child(1) {
+      left: 10%;
+      animation-delay: 1s;
+    }
+
+    .heart:nth-child(2) {
+      left: 30%;
+      animation-delay: 3s;
+    }
+
+    .heart:nth-child(3) {
+      left: 60%;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(4) {
+      left: 85%;
+      animation-delay: 2s;
+    }
+
+    @keyframes naik {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Area kartu */
+    .scene {
+      width: 400px;
+      height: 520px;
+      perspective: 1500px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1.2s ease;
+      cursor: pointer;
+    }
+
+    .card.open {
+      transform: rotateY(-180deg);
+    }
+
+    /* Bagian depan */
+    .front,
+    .inside {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+      backface-visibility: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+    }
+
+    .front {
+      background: linear-gradient(145deg, #ff4f91, #ff8fba);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border: 5px solid rgba(255,255,255,0.5);
+    }
+
+    .front::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      top: -120px;
+      right: -120px;
+    }
+
+    .front::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .flower {
+      font-size: 80px;
+      animation: bunga 2s ease-in-out infinite;
+    }
+
+    @keyframes bunga {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(5deg);
+      }
+    }
+
+    .front h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 55px;
+      margin: 15px 0 5px;
+    }
+
+    .front p {
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    .click {
+      margin-top: 35px;
+      padding: 12px 25px;
+      background: white;
+      color: #ff4081;
+      border-radius: 30px;
+      font-weight: 600;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    /* Bagian dalam */
+    .inside {
+      background: #fffafc;
+      transform: rotateY(180deg);
+      padding: 35px 30px;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .inside h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #ec3f7c;
+      font-size: 48px;
+      margin: 5px 0 20px;
+    }
+
+    .photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #ff9fc2;
+      box-shadow: 0 8px 20px rgba(236,63,124,0.25);
+      margin-bottom: 15px;
+    }
+
+    .inside p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 12px 0;
+    }
+
+    .signature {
+      font-family: 'Great Vibes', cursive;
+      color: #ec3f7c !important;
+      font-size: 28px !important;
+      margin-top: 25px !important;
+    }
+
+    .back-button {
+      margin-top: 15px;
+      border: none;
+      background: #ff6fa5;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Poppins';
+    }
+
+    @media (max-width: 500px) {
+      .scene {
+        width: 90vw;
+        height: 500px;
+      }
+
+      .front h2 {
+        font-size: 45px;
+      }
+
+      .inside h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hati yang bergerak -->
+  <div class="heart">❤️</div>
+  <div class="heart">💕</div>
+  <div class="heart">💗</div>
+  <div class="heart">💖</div>
+
+  <div class="scene">
+
+    <div class="card" id="card">
+
+      <!-- DEPAN KARTU -->
+      <div class="front">
+
+        <div class="flower">🌷</div>
+
+        <h2>Untuk Ibu</h2>
+
+        <p>Sebuah kartu kecil</p>
+        <p>dengan cinta yang besar ❤️</p>
+
+        <div class="click">
+          💌 Klik untuk membuka
+        </div>
+
+      </div>
+
+
+      <!-- ISI KARTU -->
+      <div class="inside">
+
+        <!-- FOTO IBU -->
+        <!-- Ganti "foto-ibu.jpg" dengan nama foto ibu -->
+        <img
+          src="foto-ibu.jpg"
+          alt="Foto Ibu"
+          class="photo"
+        >
+
+        <h1>Selamat Ulang Tahun, Ibu!</h1>
+
+        <p>
+          Untuk wanita terhebat dalam hidupku...
+        </p>
+
+        <p>
+          Ibu, engkau adalah bunga terindah
+          yang selalu mekar dengan cinta,
+          kasih sayang, dan ketulusan.
+        </p>
+
+        <p>
+          Terima kasih untuk semua doa,
+          perhatian, kesabaran, dan kasih sayang
+          yang Ibu berikan setiap hari.
+        </p>
+
+        <p>
+          Semoga Ibu selalu diberikan kesehatan,
+          kebahagiaan, umur panjang,
+          dan keberkahan dalam setiap langkah.
+        </p>
+
+        <p>
+          Semoga semua doa dan harapan Ibu
+          dapat menjadi kenyataan.
+        </p>
+
+        <p class="signature">
+          Dengan segala cinta,<br>
+          Azalia Ifda Puspita Zahra ❤️
+        </p>
+
+        <button class="back-button" onclick="tutupKartu(event)">
+          ↩ Tutup Kartu
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+
+    const card = document.getElementById("card");
+
+    // Klik kartu untuk membuka
+    card.addEventListener("click", function() {
+      card.classList.add("open");
+    });
+
+    // Tombol tutup kartu
+    function tutupKartu(event) {
+
+      event.stopPropagation();
+
+      card.classList.remove("open");
+
+    }
+
+  </script>
+
+</body>
+</html>
